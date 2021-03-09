@@ -195,7 +195,7 @@ void start_page()
 		case 7:
 			break;
 		case 8:
-            
+            break;
 		case 9:
             verify();
 			break;
@@ -204,10 +204,10 @@ void start_page()
 		    break;
 		default:
 			printf("\nINVALID CHOICE..");
-            goto start;
+           
 	}
 	
-
+     goto start;
 
 
 }
@@ -482,7 +482,7 @@ void reservation(void)
 		printf("\n RESERVATION DONE ....\n");
 		printf("==================");
 		printf("\nPRESS ANY KEY TO GO BACK TO MAIN MENU..");
-		getch();
+		
 	}
 	else
 	{
@@ -496,7 +496,7 @@ void reservation(void)
 		}
 	}
 	fclose(fp);
-	
+    getch();	
 }
 
 /*********************************************TRAIN CHARGE()*************************************************/

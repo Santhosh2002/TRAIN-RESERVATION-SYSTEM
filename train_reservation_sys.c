@@ -25,7 +25,6 @@ float charge(int,int);
 void food (void);							
 void user_reg();
 void user_login();
-void exit_train (void);
 int i=0;
 struct login
 {
@@ -190,23 +189,18 @@ void start_page()
 			break;
 		case 6:
 			food();
-
 			break;
 		case 7:
 			break;
 		case 8:
-            
+            return ;
 		case 9:
             verify();
 			break;
-		case 10:
-            exit_train();
-		    break;
 		default:
 			printf("\nINVALID CHOICE..");
-            goto start;
 	}
-	
+	goto start;
 
 
 
@@ -482,7 +476,6 @@ void reservation(void)
 		printf("\n RESERVATION DONE ....\n");
 		printf("==================");
 		printf("\nPRESS ANY KEY TO GO BACK TO MAIN MENU..");
-		getch();
 	}
 	else
 	{
@@ -496,7 +489,7 @@ void reservation(void)
 		}
 	}
 	fclose(fp);
-	
+	getch();
 }
 
 /*********************************************TRAIN CHARGE()*************************************************/
@@ -696,11 +689,7 @@ void food (void)
 	printf("\t\n5. ");scanf("%d",&snacks);
 
     bill = water*20 + snacks*100 + breakfast*100 + lunch*300+ dinner*300;
-    printf("\n TOTAL Bill = %d", bill );
-    Sleep(5000);
-    printf("\n\nPRESS ANY KEY TO GO TO MAIN MENU......");
-	getch();
-	system("cls"); 
+    printf("Bill(meals only) = %d", bill );
 
 }
 
@@ -717,8 +706,9 @@ void cancel(void)   /* Sorry this function does not work. Coding is not complete
     printf("ENTER THE RESERVATION NUMBER");
     scanf("%ld",reservation_num);
 	fp=fopen("seats_reserved.txt","r");
-
-	if (reservation_num == passdetails.res_num)
+    while(fread(&passdetails, sizeof(passdetails), 1, fp))
+    {
+	if (res_num==reservation_num)
 	{
 		printf("\n\nCANCELLED");
     			printf("\n\nPRESS ANY KEY TO GO TO MAIN MENU......");
@@ -728,28 +718,5 @@ void cancel(void)   /* Sorry this function does not work. Coding is not complete
     {
     printf("NO RECORD ADDED.");
     }
-	
-}
-void exit_train (void)
-{   
-    system("cls");
-	printf("\t\t=================================================\n");
-	printf("\t\t|                                               |\n");
-	printf("\t\t|        -----------------------------          |\n");
-	printf("\t\t|           TRAIN TICKET RERS. SYSTEM           |\n");
-	printf("\t\t|        -----------------------------          |\n");
-	printf("\t\t|                                               |\n");
-	printf("\t\t|           THANK YOU.....                      |\n");
-	printf("\t\t|                                               |\n");
-	printf("\t\t|                HAPPY JOURNEY......            |\n");
-	printf("\t\t|                                               |\n");
-	printf("\t\t|                        GOOD LUCK......        |\n");
-	printf("\t\t|                                               |\n");
-	printf("\t\t|           |       DONE BY        |            |\n");
-	printf("\t\t|           |     GROUP - 54       |            |\n");
-	printf("\t\t|                                               |\n");
-	printf("\t\t|                                               |\n");
-	printf("\t\t=================================================\n\n\n");  
-
-    return ;
+ }	
 }

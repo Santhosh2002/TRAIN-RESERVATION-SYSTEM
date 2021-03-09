@@ -96,8 +96,6 @@ void main()
      goto start2;
 
   }
-
-
   return ;
 }
 void verify()

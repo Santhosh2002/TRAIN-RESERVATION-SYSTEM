@@ -16,7 +16,8 @@ typedef struct{
 }pd;
 
 void reservation(void);							
-void viewdetails(void);							
+void viewdetails(void);
+void traincancle(int trainno);							
 void cancel(void);
 void verify(void);								
 void printticket(long int res_num,char name[],int num_of_seats,int age,char gender[],int train_num,float charges);
@@ -25,6 +26,7 @@ float charge(int,int);
 void food (void);							
 void user_reg();
 void user_login();
+void exit_train (void);
 int i=0;
 struct login
 {
@@ -149,13 +151,13 @@ void start_page()
 	printf("\t\t|                                                                         |\n");
 	printf("\t\t|        1. RESERVE A TICKET                6. ORDER YOUR FOOD            |\n");
 	printf("\t\t|                                                                         |\n");
-	printf("\t\t|        2. CHECK ALL AVAILABLE TRAINS      7. CHECK YOUR WAITINGLIST     |\n");
+	printf("\t\t|        2. CHECK ALL AVAILABLE TRAINS      7. VIEW LOGIN DETAILS         |\n");
 	printf("\t\t|                                                                         |\n");
-	printf("\t\t|        3. CANCEL RESERVATION              8. VIEW SEATS IN YOUR COACH   |\n");
+	printf("\t\t|        3. CANCEL RESERVATION              8. EXIT                       |\n");
 	printf("\t\t|                                                                         |\n");
-	printf("\t\t|        4. GO BACK TO LOGIN                9. VIEW LOGIN DETAILS         |\n");
+	printf("\t\t|        4. GO BACK TO LOGIN                                              |\n");
 	printf("\t\t|                                                                         |\n");
-	printf("\t\t|        5. GO BACK TO REGISTRATION         10. EXIT                      |\n");
+	printf("\t\t|        5. GO BACK TO REGISTRATION                                       |\n");
 	printf("\t\t|                                                                         |\n");
 	printf("\t\t|                                                                         |\n");
 	printf("\t\t|                                                                         |\n");
@@ -190,18 +192,20 @@ void start_page()
 		case 6:
 			food();
 			break;
+
 		case 7:
-			break;
-		case 8:
-            return ;
-		case 9:
             verify();
 			break;
+		case 8:
+            exit_train();
+		    break;
 		default:
 			printf("\nINVALID CHOICE..");
+            Sleep(5000); 
+           
 	}
-	goto start;
-
+	
+     goto start;
 
 
 }
@@ -476,6 +480,7 @@ void reservation(void)
 		printf("\n RESERVATION DONE ....\n");
 		printf("==================");
 		printf("\nPRESS ANY KEY TO GO BACK TO MAIN MENU..");
+		
 	}
 	else
 	{
@@ -489,7 +494,7 @@ void reservation(void)
 		}
 	}
 	fclose(fp);
-	getch();
+    getch();	
 }
 
 /*********************************************TRAIN CHARGE()*************************************************/
@@ -563,9 +568,13 @@ void printticket(long int res_num,char name[],int num_of_seats,int age,char gend
 	printf("\t\t| 2.GENDER         : %s                                         \n",gender);
 	printf("\t\t|                                                               \n");
 	printf("\t\t| 3.TRAIN NUMBER   : %d                                         \n",train_num);
-	printf("\t\t|                                                              |\n");
+	printf("\t\t|                                                              \n");
 	specifictrain(train_num);
-	printf("\t\t| 7.CHARGES        : %.2f                                   |\n",charges);
+	printf("\t\t| 7.CHARGES        : %.2f                                       \n",charges);
+	printf("\t\t|                                                               \n");
+	printf("\t\t|    PLEASE NOTE ALL THE DETAILS YOU ENTERED......              \n");
+	printf("\t\t|                                                               \n");
+	printf("\t\t|                        IT IS USED TO CANCLE YOU TICKET....    \n");
 	printf("\t\t================================================================\n\n\n");
 }
 
@@ -575,71 +584,71 @@ void specifictrain(int train_num)
 {
 	
 	if (train_num==12267)
-	{	printf("\t\t| 4.TRAIN          : MUMBAI CENTRAL - AHMEDABAD AC DURONTO EXP |\n");
-	    printf("\t\t| 5.DESTINATION    : MUMBAI CENTRAL TO AHMEDABAD               |\n");
-	    printf("\t\t| 6.DEPARTURE TIME : 23:25                                     |\n");
+	{	printf("\t\t| 4.TRAIN          : MUMBAI CENTRAL - AHMEDABAD AC DURONTO EXP \n");
+	    printf("\t\t| 5.DESTINATION    : MUMBAI CENTRAL TO AHMEDABAD               \n");
+	    printf("\t\t| 6.DEPARTURE TIME : 23:25                                     \n");
 		
 	}
 	if (train_num==12268)
 	{
-		printf("\t\t| 4.TRAIN          : AHMEDABAD - MUMBAI CENT AC DURONTO EXP    |\n");
-	    printf("\t\t| 5.DESTINATION    : AHMEDABAD TO MUMBAI CENTRAL               |\n");
-	    printf("\t\t| 6.DEPARTURE TIME : 23:40                                     |\n");
+		printf("\t\t| 4.TRAIN          : AHMEDABAD - MUMBAI CENT AC DURONTO EXP    \n");
+	    printf("\t\t| 5.DESTINATION    : AHMEDABAD TO MUMBAI CENTRAL               \n");
+	    printf("\t\t| 6.DEPARTURE TIME : 23:40                                     \n");
 	}
 	if (train_num==22201)
 	{
-		printf("\t\t| 4.TRAIN          : KOLKATA SEALDAH - PURI DURONTO EXPRESS    |\n");
-	    printf("\t\t| 5.DESTINATION    : KOLKATA SEALDAH TO PURI                   |\n");
-	    printf("\t\t| 6.DEPARTURE TIME : 20:00                                     |\n");
+		printf("\t\t| 4.TRAIN          : KOLKATA SEALDAH - PURI DURONTO EXPRESS    \n");
+	    printf("\t\t| 5.DESTINATION    : KOLKATA SEALDAH TO PURI                   \n");
+	    printf("\t\t| 6.DEPARTURE TIME : 20:00                                     \n");
 	}
 	if (train_num==22204)
 	{
-		printf("\t\t| 4.TRAIN          : SECUNDERABAD - VISAKHAPATNAM DURONTO EXP  |\n");
-	    printf("\t\t| 5.DESTINATION    : SECUNDERABAD TO  VISAKHAPATNAM            |\n");
-	    printf("\t\t| 6.DEPARTURE TIME : 20:15                                     |\n");
+		printf("\t\t| 4.TRAIN          : SECUNDERABAD - VISAKHAPATNAM DURONTO EXP  \n");
+	    printf("\t\t| 5.DESTINATION    : SECUNDERABAD TO  VISAKHAPATNAM            \n");
+	    printf("\t\t| 6.DEPARTURE TIME : 20:15                                     \n");
 	}
 	if (train_num==22206)
 	{
-		printf("\t\t| 4.TRAIN          : MADURAI - CHENNAI CENTRAL AC DURONTO EXP  |\n");
-	    printf("\t\t| 5.DESTINATION    : MADURAI TO CHENNAI CENTRAL                |\n");
-	    printf("\t\t| 6.DEPARTURE TIME : 22:40                                     |\n");
+		printf("\t\t| 4.TRAIN          : MADURAI - CHENNAI CENTRAL AC DURONTO EXP  \n");
+	    printf("\t\t| 5.DESTINATION    : MADURAI TO CHENNAI CENTRAL                \n");
+	    printf("\t\t| 6.DEPARTURE TIME : 22:40                                     \n");
 	}
 	if (train_num==12426)
 	{
-		printf("\t\t| 4.TRAIN          : JAMMU TAWI - NEW DELHI RAJDHANI EXPRESS   |\n");
-	    printf("\t\t| 5.DESTINATION    : JAMMU TO NEW DELHI                        |\n");
-	    printf("\t\t| 6.DEPARTURE TIME : 19:40                                     |\n");
+		printf("\t\t| 4.TRAIN          : JAMMU TAWI - NEW DELHI RAJDHANI EXPRESS   \n");
+	    printf("\t\t| 5.DESTINATION    : JAMMU TO NEW DELHI                        \n");
+	    printf("\t\t| 6.DEPARTURE TIME : 19:40                                     \n");
 	}
 	if (train_num==12430)
 	{
-		printf("\t\t| 4.TRAIN          : NEW DELHI - LUCKNOW AC SF EXPRESS         |\n");
-	    printf("\t\t| 5.DESTINATION    : NEW DELHI TO LUCKNOW                      |\n");
-	    printf("\t\t| 6.DEPARTURE TIME : 20:50                                     |\n");
+		printf("\t\t| 4.TRAIN          : NEW DELHI - LUCKNOW AC SF EXPRESS         \n");
+	    printf("\t\t| 5.DESTINATION    : NEW DELHI TO LUCKNOW                      \n");
+	    printf("\t\t| 6.DEPARTURE TIME : 20:50                                     \n");
 	}
 	if (train_num==12437)
 	{
-		printf("\t\t| 4.TRAIN          : SECUNDERABAD - HAZRAT NIZAMUDDIN EXP      |\n");
-	    printf("\t\t| 5.DESTINATION    : SECUNDERABAD TO HAZRAT NIZAMUDDIN         |\n");
-	    printf("\t\t| 6.DEPARTURE TIME : 12:45                                     |\n");
+		printf("\t\t| 4.TRAIN          : SECUNDERABAD - HAZRAT NIZAMUDDIN EXP      \n");
+	    printf("\t\t| 5.DESTINATION    : SECUNDERABAD TO HAZRAT NIZAMUDDIN         \n");
+	    printf("\t\t| 6.DEPARTURE TIME : 12:45                                     \n");
 	}
 	if (train_num==12951)
 	{
-		printf("\t\t| 4.TRAIN          : MUMBAI CENTRAL - NEW DELHI RAJDHANI EXP   |\n");
-	    printf("\t\t| 5.DESTINATION    : MUMBAI CENTRAL TO NEW DELHI               |\n");
-	    printf("\t\t| 6.DEPARTURE TIME : 16:35                                     |\n");
+		printf("\t\t| 4.TRAIN          : MUMBAI CENTRAL - NEW DELHI RAJDHANI EXP   \n");
+	    printf("\t\t| 5.DESTINATION    : MUMBAI CENTRAL TO NEW DELHI               \n");
+	    printf("\t\t| 6.DEPARTURE TIME : 16:35                                     \n");
 	}
 	if (train_num==12953)
 	{
-		printf("\t\t| 4.TRAIN          : MUMBAI CENT - HAZRAT NIZAMUDDIN KRANTI EXP|\n");
-	    printf("\t\t| 5.DESTINATION    : MUMBAI CENTRAL TO HAZRAT NIZAMUDDIN       |\n");
-	    printf("\t\t| 6.DEPARTURE TIME : 17:40                                     |\n");
+		printf("\t\t| 4.TRAIN          : MUMBAI CENT - HAZRAT NIZAMUDDIN KRANTI EXP\n");
+	    printf("\t\t| 5.DESTINATION    : MUMBAI CENTRAL TO HAZRAT NIZAMUDDIN       \n");
+	    printf("\t\t| 6.DEPARTURE TIME : 17:40                                     \n");
 	}
 }
 void food (void)
 {
     int water, snacks, lunch,breakfast,bill,dinner;
 	system("cls");
-	
+	system("cls");
 	printf("\t\t=================================================================\n");
 	printf("\t\t|                                                               |\n");
 	printf("\t\t|        -----------------------------                          |\n");
@@ -689,34 +698,149 @@ void food (void)
 	printf("\t\n5. ");scanf("%d",&snacks);
 
     bill = water*20 + snacks*100 + breakfast*100 + lunch*300+ dinner*300;
-    printf("Bill(meals only) = %d", bill );
+    printf("\n TOTAL Bill = %d", bill );
+    Sleep(5000);
+    printf("\n\nPRESS ANY KEY TO GO TO MAIN MENU......");
+	getch();
 
 }
 
-void cancel(void)   /* Sorry this function does not work. Coding is not completed. Codes have been removed due to some errors  */
+void cancel(void)  
 {
-    pd passdetails;
-    int train_num;
-	int age;
-    long int res_num ;
-    long int reservation_num;
-	int num_of_seats; 
-    res_num = train_num *10+ num_of_seats*1000 + age;
-	FILE *fp;
-    printf("ENTER THE RESERVATION NUMBER");
-    scanf("%ld",reservation_num);
-	fp=fopen("seats_reserved.txt","r");
-    while(fread(&passdetails, sizeof(passdetails), 1, fp))
-    {
-	if (res_num==reservation_num)
-	{
-		printf("\n\nCANCELLED");
-    			printf("\n\nPRESS ANY KEY TO GO TO MAIN MENU......");
-			getch();  
+
+    int trainno;
+	int age1;
+    long int res_num1 ;
+    char name1[20];
+	int num_of_seats1; 
+    char gender1[20];
+    res_num1 = trainno *10+ num_of_seats1*1000 + age1; 
+	system("cls");
+	
+	printf("\t\t=================================================\n");
+	printf("\t\t|                                               |\n");
+	printf("\t\t|        -----------------------------          |\n");
+	printf("\t\t|           TRAIN TICKET RERS. SYSTEM           |\n");
+	printf("\t\t|        -----------------------------          |\n");
+	printf("\t\t|                                               |\n");
+	printf("\t\t| 1. ENTER YOUR NAME:                           |\n");
+	printf("\t\t|                                               |\n");
+	printf("\t\t| 2. ENTER NUMBER OF SEATS:                     |\n");
+	printf("\t\t|                                               |\n");
+	printf("\t\t| 3. ENTER YOUR AGE:                            |\n");
+	printf("\t\t|                                               |\n");
+	printf("\t\t| 4. ENTER YOUR GENDER:                         |\n");
+	printf("\t\t|                                               |\n");
+	printf("\t\t| 5. ENTER TRAIN NUMBER:                        |\n");
+	printf("\t\t|                                               |\n");
+	printf("\t\t|                                               |\n");
+	printf("\t\t=================================================\n\n\n");
+    printf("\n1:\t");scanf("%s",&name1);
+
+	printf("\n2: \t");scanf("%d",&num_of_seats1);
+	
+	printf("\n3: \t");scanf("%d",&age1);
+
+	printf("\n4: \t");scanf("%s",&gender1);
+
+	printf("\n5: \t");scanf("%d",&trainno);
+
+	system("cls");
+	printf("\t\t============================================================\n");
+	printf("\t\t|                                                              |\n");
+	printf("\t\t|        -----------------------------                         |\n");
+	printf("\t\t|           TRAIN TICKET RERS. SYSTEM                          |\n");
+	printf("\t\t|        -----------------------------                         |\n");
+	printf("\t\t|                                                              |\n");
+    printf("\t\t|               CHECK YOU DETAILS ENTERED                      |\n");
+	printf("\t\t|                                                              |\n");
+	printf("\t\t|   RESERVATION NUMBER %ld                                      \n",res_num1);	
+	printf("\t\t|                                                               \n");
+	printf("\t\t| 1.NAME           : %s                                         \n",name1);
+	printf("\t\t|                                                               \n");
+	printf("\t\t| 2.NUMBER OF SEATS: %d                                         \n",num_of_seats1);
+	printf("\t\t|                                                               \n");
+	printf("\t\t| 1.AGE            : %d                                         \n",age1);
+	printf("\t\t|                                                               \n");
+	printf("\t\t| 2.GENDER         : %s                                         \n",gender1);
+	printf("\t\t|                                                               \n");
+	printf("\t\t| 3.TRAIN NUMBER   : %d                                         \n",trainno);
+	printf("\t\t|                                                              |\n");
+ 	printf("\t\t================================================================\n\n\n"); 
+    Sleep(5000);
+    traincancle(trainno);
+    printf("\nLOADING...........\n\n");
+    Sleep(5000);
+}
+void exit_train (void)
+{   
+    system("cls");
+	printf("\t\t=================================================\n");
+	printf("\t\t|                                               |\n");
+	printf("\t\t|        -----------------------------          |\n");
+	printf("\t\t|           TRAIN TICKET RERS. SYSTEM           |\n");
+	printf("\t\t|        -----------------------------          |\n");
+	printf("\t\t|                                               |\n");
+	printf("\t\t|           THANK YOU.....                      |\n");
+	printf("\t\t|                                               |\n");
+	printf("\t\t|                HAPPY JOURNEY......            |\n");
+	printf("\t\t|                                               |\n");
+	printf("\t\t|                        GOOD LUCK......        |\n");
+	printf("\t\t|                                               |\n");
+	printf("\t\t|           |       DONE BY        |            |\n");
+	printf("\t\t|           |     GROUP - 54       |            |\n");
+	printf("\t\t|                                               |\n");
+	printf("\t\t|                                               |\n");
+	printf("\t\t=================================================\n\n\n");  
+
+    return ;
+}
+void traincancle(int trainno)
+{
+	
+	if (trainno==12267)
+	{	printf("\nTICKET HAS BEEN CANCLED\t");
+		
 	}
-	else
+	else if (trainno==12268)
+	{
+	printf("\nTICKET HAS BEEN CANCLED\t");
+	}
+	else if (trainno==22201)
+	{
+		printf("\nTICKET HAS BEEN CANCLED\t");
+
+	}
+	else if (trainno==22204)
+	{
+		printf("\nTICKET HAS BEEN CANCLED\t");
+	}
+	else if (trainno==22206)
+	{
+        printf("\nTICKET HAS BEEN CANCLED\t");
+	}
+	else if (trainno==12426)
+	{
+		printf("\nTICKET HAS BEEN CANCLED\t");
+	}
+	else if (trainno==12430)
+	{
+		printf("\nTICKET HAS BEEN CANCLED\t");
+	}
+	else if (trainno==12437)
+	{
+		printf("\nTICKET HAS BEEN CANCLED\t");
+	}
+	else if (trainno==12951)
+	{
+       printf("\nTICKET HAS BEEN CANCLED\t");
+	}
+	else if (trainno==12953)
+	{
+		printf("\nTICKET HAS BEEN CANCLED\t"); 
+	}
+    else
     {
-    printf("NO RECORD ADDED.");
+       printf("\nINVALID ENTERED DETAILS\t"); 
     }
- }	
 }

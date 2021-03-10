@@ -568,7 +568,7 @@ void printticket(long int res_num,char name[],int num_of_seats,int age,char gend
 	printf("\t\t| 2.GENDER         : %s                                         \n",gender);
 	printf("\t\t|                                                               \n");
 	printf("\t\t| 3.TRAIN NUMBER   : %d                                         \n",train_num);
-	printf("\t\t|                                                              \n");
+	printf("\t\t|                                                               \n");
 	specifictrain(train_num);
 	printf("\t\t| 7.CHARGES        : %.2f                                       \n",charges);
 	printf("\t\t|                                                               \n");
@@ -796,20 +796,18 @@ void exit_train (void)
     return ;
 }
 void traincancle(int trainno)
-{
-	
+{	
 	if (trainno==12267)
-	{	printf("\nTICKET HAS BEEN CANCLED\t");
-		
+	{	
+		printf("\nTICKET HAS BEEN CANCLED\t");
 	}
 	else if (trainno==12268)
 	{
-	printf("\nTICKET HAS BEEN CANCLED\t");
+	    printf("\nTICKET HAS BEEN CANCLED\t");
 	}
 	else if (trainno==22201)
 	{
 		printf("\nTICKET HAS BEEN CANCLED\t");
-
 	}
 	else if (trainno==22204)
 	{

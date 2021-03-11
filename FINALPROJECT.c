@@ -173,6 +173,7 @@ void start_page()
 		case 1:
 			reservation();		
 			break;
+			goto start;
 		case 2:
 			viewdetails();
 			Sleep(1000);
@@ -180,33 +181,36 @@ void start_page()
 			getch();
 			system("cls"); 
 			break;
+			goto start;
 		case 3:
             cancel();
 			break;
+			goto start;
 		case 4:
             user_login();
 			break;
+			goto start;
 		case 5:
 			user_reg();
 			break;
+			goto start;
 		case 6:
 			food();
 			break;
-
+            goto start;
 		case 7:
             verify();
 			break;
+			goto start;
 		case 8:
             exit_train();
 		    break;
 		default:
 			printf("\nINVALID CHOICE..");
             Sleep(5000); 
+			goto start;
            
 	}
-	
-     goto start;
-
 
 }
 void user_reg()

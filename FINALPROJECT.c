@@ -134,7 +134,7 @@ void verify()
 	printf("\t\t=================================================\n\n\n");
     }
     fclose(user_log);
-    printf("Press any key to continue...");
+    printf("PRESS ANY KEY TO CONTINUE...");
     getch();
     system("cls");
 }
@@ -570,10 +570,10 @@ void printticket(long int res_num,char name[],int num_of_seats,int age,char gend
 	printf("\t\t|                                                               \n");
 	specifictrain(train_num);
 	printf("\t\t| 7.CHARGES        : %.2f                                       \n",charges);
-	printf("\t\t|                                                               \n");
-	printf("\t\t|    PLEASE NOTE ALL THE DETAILS YOU ENTERED......              \n");
-	printf("\t\t|                                                               \n");
-	printf("\t\t|                        IT IS USED TO CANCLE YOU TICKET....    \n");
+	printf("\t\t|                                                              |\n");
+	printf("\t\t|    PLEASE NOTE ALL THE DETAILS YOU ENTERED......             |\n");
+	printf("\t\t|                                                              |\n");
+	printf("\t\t|                        IT IS USED TO CANCLE YOU TICKET....   |\n");
 	printf("\t\t================================================================\n\n\n");
 }
 

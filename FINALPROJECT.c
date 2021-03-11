@@ -196,14 +196,16 @@ void start_page()
 		case 7:
             verify();
 			break;
+			system("cls");
 		case 8:
             exit_train();
-			return (0);
+			return ;
 		default:
 			printf("\nINVALID CHOICE..");
             Sleep(5000); 
            
 	}
+	system("cls"); 
     goto start;
 }
 void user_reg()
@@ -467,7 +469,6 @@ void reservation(void)
 	
 	start:
 	scanf(" %c",&confirm);
-	printf("\nLOADING...........\n\n");
 	Sleep(1000);
 	if(confirm == 'y')
 	{
@@ -476,6 +477,7 @@ void reservation(void)
 		printf("==================");
 		printf("\n RESERVATION DONE ....\n");
 		printf("==================");
+		printf("\nLOADING...........\n\n");
 		printf("\nPRESS ANY KEY TO GO BACK TO MAIN MENU..");
 		
 	}
@@ -645,7 +647,6 @@ void food (void)
 {
     int water, snacks, lunch,breakfast,bill,dinner;
 	system("cls");
-	system("cls");
 	printf("\t\t=================================================================\n");
 	printf("\t\t|                                                               |\n");
 	printf("\t\t|        -----------------------------                          |\n");
@@ -654,7 +655,7 @@ void food (void)
 	printf("\t\t|                                                               |\n");
 	printf("\t\t|         YOUR SAFETY IS OUR PRIORITY..                         |\n");
 	printf("\t\t|                                                               |\n");
-	printf("\t\t| EVERY THING IS WELL SANITINED AND COOKED IN A CLEAN AREA      |\n");
+	printf("\t\t| EVERY THING IS WELL SANITIZED AND COOKED IN A CLEAN AREA      |\n");
 	printf("\t\t|                                                               |\n");
 	printf("\t\t| NOTE : EVERY THING WILL BE SERVED AT THEIR RESPECTIVE TIME    |\n");
 	printf("\t\t|                                                               |\n");

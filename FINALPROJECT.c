@@ -181,37 +181,30 @@ void start_page()
 			getch();
 			system("cls"); 
 			break;
-			goto start;
 		case 3:
             cancel();
 			break;
-			goto start;
 		case 4:
             user_login();
 			break;
-			goto start;
 		case 5:
 			user_reg();
 			break;
-			goto start;
 		case 6:
 			food();
 			break;
-            goto start;
 		case 7:
             verify();
 			break;
-			goto start;
 		case 8:
             exit_train();
-		    break;
+			return (0);
 		default:
 			printf("\nINVALID CHOICE..");
             Sleep(5000); 
-			goto start;
            
 	}
-
+    goto start;
 }
 void user_reg()
 
@@ -706,7 +699,6 @@ void food (void)
     Sleep(5000);
     printf("\n\nPRESS ANY KEY TO GO TO MAIN MENU......");
 	getch();
-
 }
 
 void cancel(void)  

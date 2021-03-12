@@ -1013,7 +1013,7 @@ void seatnum()
 	printf("\n3:\t");scanf("%d",&s.seatno);
     if (seatno == 3||4||6||8||10||11||12||18||19||20||21||22||23||24||25||26||28||32 )
     {
-     printf("SEAT RESERVED FOR YOU\n"); 
+     printf("SEAT RESERVED FOR YOU"); 
 
     }
     else{
@@ -1080,7 +1080,7 @@ void seatnum()
 	printf("\n3:\t");scanf("%d",&s.seatno);
     if (seatno == 2||7||4||8||10||16||12||18||13||20||21||22||24||25||26||28||32 )
     {
-     printf("SEAT RESERVED FOR YOU\n"); 
+     printf("SEAT RESERVED FOR YOU"); 
 
     }
     else{

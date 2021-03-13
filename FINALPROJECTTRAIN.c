@@ -919,7 +919,7 @@ void canceltrain()
 	  Sleep(2000);
 	  printf("\nLOADING...........\n\n");
 	  Sleep(1000);
-      cancletrain();
+      canceltrain();
     }
     fclose(user_info);
    }

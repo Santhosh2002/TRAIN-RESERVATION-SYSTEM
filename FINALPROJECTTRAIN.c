@@ -19,13 +19,14 @@ void reservation(void);
 void viewdetails(void);							
 void cancel(void);
 void seatnum();
-void cancletrain();
+void canceltrain();
 void verify(void);								
 void printticket(long int res_num,char name[],int num_of_seats,int age,char gender[],int train_num,float charges);
 void specifictrain(int);						
 float charge(int,int);
 void food (void);							
 void user_reg();
+void start_page();
 void user_login();
 void user_info();
 void exit_train (void);
@@ -37,7 +38,7 @@ struct login
   char username[20];
   char passward[20];
 };
-struct cancle
+struct cancel
 {
   char fname[20];
   char lname[20];
@@ -783,7 +784,7 @@ void cancel(void)
 	printf("\t\t|                                                              |\n");
  	printf("\t\t================================================================\n\n\n"); 
     Sleep(5000);
-	cancletrain();
+	canceltrain();
     printf("\nLOADING...........\n\n");
     Sleep(5000);
 }
@@ -818,7 +819,7 @@ void user_info()
   char aadhar[20];
   char age[20];
     FILE * user_info = fopen("user_info.txt" , "w");
-    struct cancle c ;
+    struct cancel c ;
 	system("cls"); 
 
 	printf("\t\t=================================================\n");
@@ -842,7 +843,7 @@ void user_info()
 	printf("\n3:\t");scanf("%s",&c.aadhar);
 	printf("\n4:\t");scanf("%s",&c.age);
 
-    fwrite(&c,sizeof(struct cancle),1,user_info);
+    fwrite(&c,sizeof(struct cancel),1,user_info);
     fclose(user_info);
 	printf("\nLOADING...........\n");
 	Sleep(1000);
@@ -869,14 +870,14 @@ void user_info()
 
 }
 
-void cancletrain()
+void canceltrain()
 {
   char fname[20];
   char lname[20];
   char aadhar[20];
   char age[20];
   FILE * user_info = fopen("user_info.txt" ,"r");
-  struct cancle c ;
+  struct cancel c ;
 
     system("cls"); 
 
@@ -901,11 +902,11 @@ void cancletrain()
 	printf("\nLOADING...........\n");
 	Sleep(1000);
 
-  while(fread(&c,sizeof(struct cancle),1,user_info))
+  while(fread(&c,sizeof(struct cancel),1,user_info))
   {
     if (strcmp(aadhar,c.aadhar)==0 && strcmp(age,c.age)==0)
     {
-      printf("\nCANCLE SUCCESSFUL.........\n");
+      printf("\nCANCEL SUCCESSFUL.........\n");
 	  Sleep(1000);
 	  system("cls");
 

@@ -45,6 +45,7 @@ struct cancel
   char aadhar[20];
   char age[20];
 };
+
 struct seat
 {
   char name[20];
@@ -728,16 +729,15 @@ void food (void)
 
 void cancel(void)  
 {
-
     int trainno;
 	int age1;
     long int res_num1 ;
     char name1[20];
 	int num_of_seats1; 
     char gender1[20];
+
     res_num1 = trainno *10+ num_of_seats1*1000 + age1; 
-	system("cls");
-	
+	system("cls");	
 	printf("\t\t=================================================\n");
 	printf("\t\t|                                               |\n");
 	printf("\t\t|        -----------------------------          |\n");
@@ -756,13 +756,9 @@ void cancel(void)
 	printf("\t\t|                                               |\n");
 	printf("\t\t=================================================\n\n\n");
     printf("\n1:\t");scanf("%s",&name1);
-
 	printf("\n2: \t");scanf("%d",&num_of_seats1);
-	
 	printf("\n3: \t");scanf("%d",&age1);
-
 	printf("\n4: \t");scanf("%s",&gender1);
-
 	system("cls");
 	printf("\t\t============================================================\n");
 	printf("\t\t|                                                              |\n");

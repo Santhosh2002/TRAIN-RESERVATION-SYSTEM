@@ -49,7 +49,6 @@ struct cancel
 struct seat
 {
   char name[20];
-  int seatno;
   char aadhar[20];
   char age[20];
 
@@ -113,10 +112,9 @@ void main()
 	  Sleep(2000);
       printf("\n\nPRESS ANY KEY TO GO TO FIRST PAGE......");
 	  getch();
-     goto start2;
 
   }
-
+     goto start2;
   return ;
 }
 void verify()
@@ -428,7 +426,7 @@ void reservation(void)
 	Sleep(2000);
     user_info();
     Sleep(2000);
-	seatnum();
+	
 	start1:
 	if(passdetails.train_num==12267)
 	{
@@ -483,9 +481,10 @@ void reservation(void)
 	else
 	{
 		printf("\nINVALID TRAIN NUMBER !\n \n ENTER AGAIN ");
-		goto start1;
+		
 	}
-
+    goto start1;
+	seatnum();
 	printf("\n\nCONFIRM TICKET (y/n):");
 	
 	start:
@@ -779,9 +778,10 @@ void cancel(void)
 	printf("\t\t|                                                               \n");
 	printf("\t\t|                                                              |\n");
  	printf("\t\t================================================================\n\n\n"); 
-    Sleep(5000);
+    Sleep(1000);
+	printf("\nLOADING...........\n\n");
 	canceltrain();
-    printf("\nLOADING...........\n\n");
+    
     Sleep(5000);
 }
 void exit_train (void)
@@ -904,7 +904,6 @@ void canceltrain()
     {
       printf("\nCANCEL SUCCESSFUL.........\n");
 	  Sleep(1000);
-	  system("cls");
 
     }
     else
@@ -950,7 +949,7 @@ void seatnum()
 	printf("\t\t|                                               |\n");
 	printf("\t\t|                                               |\n");
 	printf("\t\t=================================================\n\n\n"); 
-	printf("\nENTER YOUR CHOICE :\n");scanf("%d",&choice1);
+	printf("\nENTER YOUR CHOICE :");scanf("%d",&choice1);
   switch (choice1)
   {
     case 1 : 
@@ -980,7 +979,7 @@ void seatnum()
 	printf("\t\t|                                                                                             |\n");
 	printf("\t\t===============================================================================================\n\n\n");
     printf("\n\nPLEASE REMEMBER AVAILABLE SEATS AND ENTER IN NEXT STEPS:\n");
-	Sleep(5000);
+	Sleep(2000);
         printf("\n\nPRESS ANY KEY TO CONTINUE......");
 	getch();
     system("cls"); 
@@ -1003,14 +1002,94 @@ void seatnum()
 
 	printf("ENTER NUMBER OF SEATS DO YOU WANT :\n");scanf("%d",&numseats);
     for(i=0;i<=numseats-1;i=i+1)
-	{
+	{ 
 	printf("ENTER DETAILS :\n");
 	printf("\n1:\t");scanf("%s",&s.name);
 	printf("\n2:\t");scanf("%d",&s.aadhar);
-	printf("\n3:\t");scanf("%d",&s.seatno);
-    if (seatno == 3||4||6||8||10||11||12||18||19||20||21||22||23||24||25||26||28||32 )
+	printf("\n3:\t");scanf("%d",&seatno);
+    if (seatno == 3)
     {
-     printf("SEAT RESERVED FOR YOU"); 
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 4)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 6)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 8)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 10)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 11)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 12)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 18)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 19)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 20)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 21)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 22)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 24)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 25)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 26)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 28 )
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 32)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
 
     }
     else{
@@ -1074,10 +1153,85 @@ void seatnum()
 	printf("ENTER DETAILS :\n");
 	printf("\n1:\t");scanf("%s",&s.name);
 	printf("\n2:\t");scanf("%d",&s.aadhar);
-	printf("\n3:\t");scanf("%d",&s.seatno);
-    if (seatno == 2||7||4||8||10||16||12||18||13||20||21||22||24||25||26||28||32 )
+	printf("\n3:\t");scanf("%d",&seatno);
+    if (seatno == 2)
     {
-     printf("SEAT RESERVED FOR YOU"); 
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 4)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 7)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 8)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 10)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 12)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 13)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 16)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 18)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 20)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 21)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 22)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 24)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 25)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 28 )
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
+
+    }
+    else if (seatno == 32)
+    {
+     printf("\tSEAT RESERVED FOR YOU"); 
 
     }
     else{
@@ -1100,5 +1254,3 @@ void seatnum()
 	  printf("\nLOADING...........\n\n");
 	  Sleep(1000);
 }
-
-

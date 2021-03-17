@@ -426,7 +426,7 @@ void reservation(void)
 	Sleep(2000);
     user_info();
     Sleep(2000);
-	
+	seatnum();
 	start1:
 	if(passdetails.train_num==12267)
 	{
@@ -481,10 +481,9 @@ void reservation(void)
 	else
 	{
 		printf("\nINVALID TRAIN NUMBER !\n \n ENTER AGAIN ");
-		
+		goto start1;
 	}
-    goto start1;
-	seatnum();
+    
 	printf("\n\nCONFIRM TICKET (y/n):");
 	
 	start:

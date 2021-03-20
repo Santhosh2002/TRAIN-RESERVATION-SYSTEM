@@ -189,7 +189,6 @@ void start_page()
 		case 1:
 			reservation();		
 			break;
-			goto start;
 		case 2:
 			viewdetails();
 			Sleep(1000);
@@ -727,14 +726,11 @@ void food (void)
 
 void cancel(void)  
 {
-    int trainno;
 	int age1;
-    long int res_num1 ;
     char name1[20];
 	int num_of_seats1; 
     char gender1[20];
 
-    res_num1 = trainno *10+ num_of_seats1*1000 + age1; 
 	system("cls");	
 	printf("\t\t=================================================\n");
 	printf("\t\t|                                               |\n");
